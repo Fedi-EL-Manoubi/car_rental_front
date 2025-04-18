@@ -1,0 +1,101 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <!-- Image du véhicule -->
+    <div class="col-md-6">
+      <img [src]="car?.photo" class="img-fluid rounded shadow" alt="{{ car?.brand }} {{ car?.model }}">
+    </div>
+
+    <!-- Détails du véhicule -->
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bold text-primary">{{ car?.brand }} {{ car?.model }}</h1>
+      <p class="text-muted fs-5">{{ car?.description }}</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Année :</strong> {{ car?.year }}</li>
+        <li class="list-group-item"><strong>Prix journalier :</strong> {{ car?.price | currency:'EUR' }}</li>
+        <li class="list-group-item"><strong>Disponibilité :</strong> 
+          <span *ngIf="car?.available" class="text-success">Disponible</span>
+          <span *ngIf="!car?.available" class="text-danger">Indisponible</span>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex align-items-center">
+            <strong>Likes :</strong> <span class="ms-1">{{ car?.likes || 0 }}</span>
+            <button class="btn btn-outline-primary btn-sm ms-2" (click)="likeCar()" [disabled]="hasLiked">
+              <i class="fas fa-thumbs-up"></i> {{ hasLiked ? 'Déjà aimé' : 'J'aime' }}
+            </button>
+          </div>
+        </li>
+      </ul>
+      <div class="mt-4">
+        <button class="btn btn-secondary btn-lg ms-2" routerLink="/">Retour</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section calendrier et réservation -->
+  <div class="mt-5">
+    <h2 class="mb-4">Sélectionnez vos dates de réservation</h2>
+    
+    <!-- Informations sur la sélection actuelle -->
+    <div *ngIf="selectedStartDate && selectedEndDate" class="alert alert-info mb-4">
+      <h4>Votre sélection</h4>
+      <p><strong>Du :</strong> {{ selectedStartDate | date:'dd/MM/yyyy' }} <strong>au :</strong> {{ selectedEndDate | date:'dd/MM/yyyy' }}</p>
+      <p><strong>Durée :</strong> {{ totalDays }} jour(s)</p>
+      <p><strong>Prix total :</strong> {{ totalPrice | currency:'EUR' }}</p>
+      <button *ngIf="car?.available" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#reservationModal">
+        Réserver ces dates
+      </button>
+    </div>
+
+    <!-- Calendrier -->
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+  <!-- Modale de réservation -->
+  <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reservationModalLabel">Réservation de véhicule</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Nom complet</label>
+              <input type="text" id="customerName" class="form-control" formControlName="customerName" />
+              <div *ngIf="reservationForm.get('customerName')?.invalid && reservationForm.get('customerName')?.touched" class="text-danger">
+                Veuillez entrer votre nom.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="customerEmail" class="form-label">Email</label>
+              <input type="email" id="customerEmail" class="form-control" formControlName="customerEmail" />
+              <div *ngIf="reservationForm.get('customerEmail')?.invalid && reservationForm.get('customerEmail')?.touched" class="text-danger">
+                Veuillez entrer une adresse email valide.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="customerPhone" class="form-label">Téléphone</label>
+              <input type="tel" id="customerPhone" class="form-control" formControlName="customerPhone" />
+              <div *ngIf="reservationForm.get('customerPhone')?.invalid && reservationForm.get('customerPhone')?.touched" class="text-danger">
+                Veuillez entrer votre numéro de téléphone.
+              </div>
+            </div>
+            <div class="mb-3">
+              <h5>Récapitulatif</h5>
+              <p><strong>Véhicule :</strong> {{ car?.brand }} {{ car?.model }}</p>
+              <p><strong>Période :</strong> Du {{ selectedStartDate | date:'dd/MM/yyyy' }} au {{ selectedEndDate | date:'dd/MM/yyyy' }}</p>
+              <p><strong>Prix total :</strong> {{ totalPrice | currency:'EUR' }}</p>
+            </div>
+            <div class="text-end">
+              <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Annuler</button>
+              <button type="submit" class="btn btn-success" [disabled]="reservationForm.invalid">
+                Confirmer la réservation
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

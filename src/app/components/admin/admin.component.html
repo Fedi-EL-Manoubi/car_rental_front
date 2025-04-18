@@ -1,0 +1,93 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Gestion des Véhicules</h1>
+
+  <!-- Bouton pour ajouter une voiture -->
+  <div class="text-end mb-3">
+    <button class="btn btn-success" (click)="openAddModal()">Ajouter un véhicule</button>
+  </div>
+
+  <!-- Tableau des voitures -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Marque</th>
+          <th>Modèle</th>
+          <th>Année</th>
+          <th>Prix journalier</th>
+          <th>Disponibilité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.price | currency:'EUR' }}</td>
+          <td>
+            <span *ngIf="car.available" class="text-success">Disponible</span>
+            <span *ngIf="!car.available" class="text-danger">Indisponible</span>
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2" (click)="openEditModal(car)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteCar(car.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal pour ajouter/modifier une voiture -->
+  <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carModalLabel">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un véhicule</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="brand" class="form-label">Marque</label>
+              <input type="text" id="brand" class="form-control" formControlName="brand" />
+            </div>
+            <div class="mb-3">
+              <label for="model" class="form-label">Modèle</label>
+              <input type="text" id="model" class="form-control" formControlName="model" />
+            </div>
+            <div class="mb-3">
+              <label for="year" class="form-label">Année</label>
+              <input type="number" id="year" class="form-control" formControlName="year" />
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Prix journalier</label>
+              <input type="number" id="price" class="form-control" formControlName="price" />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea id="description" class="form-control" formControlName="description" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="available" class="form-label">Disponibilité</label>
+              <select id="available" class="form-select" formControlName="available">
+                <option [value]="true">Disponible</option>
+                <option [value]="false">Indisponible</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="photo" class="form-label">Photo (URL)</label>
+              <input type="text" id="photo" class="form-control" formControlName="photo" />
+              <div *ngIf="carForm.get('photo')?.invalid && carForm.get('photo')?.touched" class="text-danger">
+                Veuillez entrer une URL valide pour la photo.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

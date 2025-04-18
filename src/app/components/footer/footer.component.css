@@ -1,0 +1,17 @@
+/* filepath: c:\Users\Fedi\Desktop\examen-final\examen-final\car_rental_front\src\app\components\car-details\car-details.component.css */
+img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.list-group-item {
+  font-size: 1.2rem;
+}
+
+button {
+  font-size: 1rem;
+}
