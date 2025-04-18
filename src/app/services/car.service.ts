@@ -40,6 +40,10 @@ export class CarService {
     return this.http.post<any>(`${this.apiUrl}/${id}/like`, {});
   }
 
+  decrementLikes(carId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${carId}/unlike`, {}); // URL corrigée
+  }
+
   searchByBrandOrModel(query: string): Observable<Car[]> {
     return this.http.get<Car[]>(`${this.apiUrl}/search?query=${query}`);
   }

@@ -18,9 +18,15 @@
         </li>
         <li class="list-group-item">
           <div class="d-flex align-items-center">
-            <strong>Likes :</strong> <span class="ms-1">{{ car?.likes || 0 }}</span>
-            <button class="btn btn-outline-primary btn-sm ms-2" (click)="likeCar()" [disabled]="hasLiked">
-              <i class="fas fa-thumbs-up"></i> {{ hasLiked ? 'Déjà aimé' : 'J'aime' }}
+            <strong>Likes :</strong>
+            <span class="ms-2 badge bg-primary">{{ car?.likes || 0 }}</span>
+            <button 
+              class="btn btn-like ms-3" 
+              [class.liked]="hasLiked" 
+              (click)="toggleLike()"
+            >
+              <i [class.fas]="hasLiked" [class.far]="!hasLiked" class="fa-thumbs-up"></i>
+              <span [innerHTML]="hasLiked ? 'Aimé' : 'Jaime'"></span>
             </button>
           </div>
         </li>

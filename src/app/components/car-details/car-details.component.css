@@ -1,0 +1,35 @@
+.btn-like {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.btn-like i {
+  font-size: 1.2rem;
+}
+
+.btn-like span {
+  font-size: 1rem;
+}
+
+.btn-like.liked {
+  background-color: #28a745;
+  color: white;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}

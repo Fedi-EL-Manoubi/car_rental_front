@@ -105,6 +105,39 @@ export class CarDetailsComponent implements OnInit {
     );
   }
 
+  toggleLike(): void {
+    if (this.hasLiked) {
+      // Si déjà aimé, retirer le like
+      this.carService.decrementLikes(this.car.id).subscribe(
+        () => {
+          this.car.likes = Math.max((this.car.likes || 1) - 1, 0); // Évite les valeurs négatives
+          this.hasLiked = false;
+        },
+        (error) => {
+          console.error('Erreur lors du retrait du like :', error);
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      );
+    } else {
+      // Ajouter un like
+      this.carService.incrementLikes(this.car.id).subscribe(
+        () => {
+          this.car.likes = (this.car.likes || 0) + 1;
+          this.hasLiked = true;
+
+          // Déclencher une animation temporaire
+          setTimeout(() => {
+            this.hasLiked = true; // Maintenir l'état "aimé"
+          }, 500); // Durée de l'animation
+        },
+        (error) => {
+          console.error('Erreur lors de lajout du like :', error);
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      );
+    }
+  }
+
   initForm(): void {
     this.reservationForm = this.fb.group({
       customerName: ['', Validators.required],
