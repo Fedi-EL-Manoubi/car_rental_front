@@ -5,10 +5,10 @@ import { CarDetailsComponent } from './components/car-details/car-details.compon
 import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
-  { path: '', component: CarListComponent }, // Page principale
+  { path: '', component: CarListComponent }, // Page home avec la liste des véhicules
   { path: 'cars/:id', component: CarDetailsComponent }, // Détails d'un véhicule
-  { path: 'admin', component: AdminComponent }, // Interface d'administration
-  { path: '**', redirectTo: '' } // Redirection par défaut
+  { path: 'admin', component: AdminComponent }, // admin
+  { path: '**', redirectTo: '' } 
 ];
 
 @NgModule({

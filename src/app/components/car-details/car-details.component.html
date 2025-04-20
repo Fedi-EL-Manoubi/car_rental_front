@@ -1,11 +1,10 @@
 <div class="container mt-5 mb-5">
   <div class="row">
-    <!-- Image du véhicule -->
     <div class="col-md-6">
       <img [src]="car?.photo" class="img-fluid rounded shadow" alt="{{ car?.brand }} {{ car?.model }}">
     </div>
 
-    <!-- Détails du véhicule -->
+    <!-- Detail  vehicule -->
     <div class="col-md-6">
       <h1 class="display-5 fw-bold text-primary">{{ car?.brand }} {{ car?.model }}</h1>
       <p class="text-muted fs-5">{{ car?.description }}</p>
@@ -37,11 +36,11 @@
     </div>
   </div>
 
-  <!-- Section calendrier et réservation -->
+  <!--  calendrier -->
   <div class="mt-5">
     <h2 class="mb-4">Sélectionnez vos dates de réservation</h2>
     
-    <!-- Informations sur la sélection actuelle -->
+    <!--  sélection actuelle -->
     <div *ngIf="selectedStartDate && selectedEndDate" class="alert alert-info mb-4">
       <h4>Votre sélection</h4>
       <p><strong>Du :</strong> {{ selectedStartDate | date:'dd/MM/yyyy' }} <strong>au :</strong> {{ selectedEndDate | date:'dd/MM/yyyy' }}</p>

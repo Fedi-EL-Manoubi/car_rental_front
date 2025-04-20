@@ -9,7 +9,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FullCalendarModule } from '@fullcalendar/angular'; // Importer FullCalendarModule
+import { FullCalendarModule } from '@fullcalendar/angular'; //  fullcalendar
 
 @NgModule({
   declarations: [

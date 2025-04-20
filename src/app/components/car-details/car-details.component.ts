@@ -19,17 +19,17 @@ export class CarDetailsComponent implements OnInit {
   totalPrice: number = 0;
   totalDays: number = 0;
   showReservationForm: boolean = false;
-  hasLiked: boolean = false; // Pour suivre si l'utilisateur a déjà aimé
+  hasLiked: boolean = false; 
 
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin],
     initialView: 'dayGridMonth',
     events: [],
-    selectable: true, // Permet de sélectionner plusieurs jours
+    selectable: true, 
     select: this.handleDateSelect.bind(this),
-    unselectAuto: false, // Empêche la désélection automatique
+    unselectAuto: false, 
     validRange: {
-      start: new Date() // Empêche de sélectionner des dates passées
+      start: new Date() 
     }
   };
 
@@ -45,7 +45,7 @@ export class CarDetailsComponent implements OnInit {
     if (carId) {
       this.loadCarDetails(+carId);
       
-      // Vérifier si l'utilisateur a déjà aimé cette voiture
+   
       this.checkIfUserLiked(+carId);
     }
   }
@@ -54,7 +54,7 @@ export class CarDetailsComponent implements OnInit {
     this.carService.findById(carId).subscribe((data) => {
       this.car = data;
 
-      // Charger les événements de réservation depuis le backend
+    
       this.carService.getReservations(carId).subscribe((reservations) => {
         this.calendarOptions.events = reservations.map((reservation: any) => ({
           title: 'Réservé',
@@ -67,14 +67,13 @@ export class CarDetailsComponent implements OnInit {
     });
   }
 
-  // Vérifier si l'utilisateur a déjà aimé cette voiture
+
   checkIfUserLiked(carId: number): void {
-    // Récupérer les likes de l'utilisateur depuis le localStorage
     const likedCars = JSON.parse(localStorage.getItem('likedCars') || '[]');
     this.hasLiked = likedCars.includes(carId);
   }
 
-  // Méthode pour aimer un véhicule
+// like
   likeCar(): void {
     if (this.hasLiked) {
       return; // Ne pas permettre de liker plusieurs fois
@@ -84,13 +83,10 @@ export class CarDetailsComponent implements OnInit {
     
     this.carService.incrementLikes(carId).subscribe(
       (response) => {
-        // Mettre à jour le nombre de likes affiché
         this.car.likes = (this.car.likes || 0) + 1;
-        
-        // Marquer cette voiture comme aimée pour cet utilisateur
+      
         this.hasLiked = true;
         
-        // Sauvegarder dans le localStorage pour persistance
         const likedCars = JSON.parse(localStorage.getItem('likedCars') || '[]');
         likedCars.push(carId);
         localStorage.setItem('likedCars', JSON.stringify(likedCars));
@@ -110,7 +106,7 @@ export class CarDetailsComponent implements OnInit {
       // Si déjà aimé, retirer le like
       this.carService.decrementLikes(this.car.id).subscribe(
         () => {
-          this.car.likes = Math.max((this.car.likes || 1) - 1, 0); // Évite les valeurs négatives
+          this.car.likes = Math.max((this.car.likes || 1) - 1, 0); 
           this.hasLiked = false;
         },
         (error) => {
@@ -124,11 +120,9 @@ export class CarDetailsComponent implements OnInit {
         () => {
           this.car.likes = (this.car.likes || 0) + 1;
           this.hasLiked = true;
-
-          // Déclencher une animation temporaire
           setTimeout(() => {
-            this.hasLiked = true; // Maintenir l'état "aimé"
-          }, 500); // Durée de l'animation
+            this.hasLiked = true; 
+          }, 500); 
         },
         (error) => {
           console.error('Erreur lors de lajout du like :', error);
@@ -147,11 +141,9 @@ export class CarDetailsComponent implements OnInit {
   }
 
   handleDateSelect(selectInfo: any): void {
-    // Convertir les dates en format lisible
     this.selectedStartDate = selectInfo.startStr;
     this.selectedEndDate = selectInfo.endStr;
 
-    // Calculer le nombre de jours et le prix total
     const start = new Date(selectInfo.start);
     const end = new Date(selectInfo.end);
     const diffTime = Math.abs(end.getTime() - start.getTime());
@@ -177,7 +169,6 @@ export class CarDetailsComponent implements OnInit {
       return;
     }
 
-    // Préparez les données selon ce que le backend attend
     const reservationData = {
       carId: this.car.id,
       customerName: this.reservationForm.value.customerName,
@@ -186,7 +177,7 @@ export class CarDetailsComponent implements OnInit {
       reservedFrom: this.selectedStartDate,
       reservedTo: this.selectedEndDate,
       totalPrice: this.totalPrice,
-      available: false // Important pour déclencher l'envoi d'email
+      available: false 
     };
 
     console.log('Données de réservation à envoyer :', reservationData);
@@ -194,7 +185,7 @@ export class CarDetailsComponent implements OnInit {
     this.carService.reserveCar(reservationData).subscribe(
       (response) => {
         alert('Réservation confirmée ! Un email de confirmation a été envoyé à ' + reservationData.customerEmail);
-        window.location.href = '/'; // Redirection vers la page d'accueil
+        window.location.href = '/'; 
       },
       (error) => {
         console.error('Erreur lors de la réservation :', error);

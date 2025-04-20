@@ -1,9 +1,9 @@
-/* Uniformiser la hauteur des cartes */
+
 .card {
-  min-height: 400px; /* Hauteur minimale pour toutes les cartes */
+  min-height: 400px; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Assure un espacement uniforme */
+  justify-content: space-between;
   border: none;
   border-radius: 10px;
   overflow: hidden;
@@ -15,13 +15,11 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Uniformiser la hauteur des images */
 .card-img-top {
-  height: 200px; /* Hauteur fixe pour les images */
-  object-fit: cover; /* Ajuste l'image sans la déformer */
+  height: 200px; 
+  object-fit: cover; 
 }
 
-/* Centrer le texte et espacer les éléments */
 .card-body {
   text-align: center;
 }

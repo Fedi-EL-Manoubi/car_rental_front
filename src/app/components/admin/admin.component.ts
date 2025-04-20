@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Car } from 'src/app/models/car.model';
 import { CarService } from 'src/app/services/car.service';
 
-declare var bootstrap: any; // Pour utiliser Bootstrap modals
+declare var bootstrap: any; 
 
 @Component({
   selector: 'app-admin',
@@ -23,14 +23,14 @@ export class AdminComponent implements OnInit {
     this.initForm();
   }
 
-  // Charger la liste des voitures
+ 
   loadCars(): void {
     this.carService.findAll().subscribe((data: Car[]) => {
       this.cars = data;
     });
   }
 
-  // Initialiser le formulaire
+ 
   initForm(): void {
     this.carForm = this.fb.group({
       brand: ['', Validators.required],
@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  // Ouvrir le modal pour ajouter une voiture
+
   openAddModal(): void {
     this.isEditMode = false;
     this.currentCarId = undefined;
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
     modal.show();
   }
 
-  // Ouvrir le modal pour modifier une voiture
+
   openEditModal(car: Car): void {
     this.isEditMode = true;
     this.currentCarId = car.id;
@@ -61,23 +61,20 @@ export class AdminComponent implements OnInit {
     modal.show();
   }
 
-  // Soumettre le formulaire
   onSubmit(): void {
     if (this.carForm.invalid) {
-      console.log('Formulaire invalide :', this.carForm.value); // Log si le formulaire est invalide
+      console.log('Formulaire invalide :', this.carForm.value); // Log 
       return;
     }
 
     const carData = this.carForm.value;
-    console.log('Données envoyées au backend :', carData); // Log des données envoyées
+    console.log('Données envoyées au backend :', carData); // Log 
 
     if (this.isEditMode && this.currentCarId) {
-      // Modifier une voiture
       this.carService.update(this.currentCarId, carData).subscribe(() => {
         this.loadCars();
       });
     } else {
-      // Ajouter une voiture
       this.carService.create(carData).subscribe(() => {
         this.loadCars();
       });
@@ -87,7 +84,7 @@ export class AdminComponent implements OnInit {
     modal.hide();
   }
 
-  // Supprimer une voiture
+
   deleteCar(id?: number): void {
     if (!id) return;
 
