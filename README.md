@@ -1,7 +1,7 @@
 # 🚗 RentalCar - Application de Location de Véhicules 🚙
 
-![Logo RentalCar]
-*Insérez votre logo ici*
+![image](https://github.com/user-attachments/assets/84b26022-5a6b-4253-857e-330b1f88f02a)
+
 
 ## 📋 Description du Projet
 
