@@ -32,17 +32,17 @@ RentalCar est une application web développée avec Angular qui permet aux utili
 ### Fiche détaillée d'un véhicule
 ![Fiche véhicule]
 ![image](https://github.com/user-attachments/assets/7c30946b-989f-4df6-9bf2-a7767be9afbd)
-![image](https://github.com/user-attachments/assets/d9d242f9-e6ca-4ffe-86d1-17426b03c23e)
+
 
 
 ### Interface de réservation avec calendrier
 ![Système de réservation]
-![image](https://github.com/user-attachments/assets/890e560a-7dce-4a0e-8fd1-eaed0f633247)
+![image](https://github.com/user-attachments/assets/d9d242f9-e6ca-4ffe-86d1-17426b03c23e)
 
 
 ### Panneau d'administration
 ![Panneau admin]
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/890e560a-7dce-4a0e-8fd1-eaed0f633247)
 
 
 ## 🔧 Prérequis
