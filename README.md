@@ -1,28 +1,166 @@
-# CarRentalApp
+# 🚗 RentalCar - Application de Location de Véhicules 🚙
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.
+![image](https://github.com/user-attachments/assets/84b26022-5a6b-4253-857e-330b1f88f02a)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📋 Description du Projet
 
-## Code scaffolding
+RentalCar est une application web développée avec Angular qui permet aux utilisateurs de louer des véhicules en ligne. L'application offre une interface utilisateur intuitive pour parcourir, rechercher et réserver des véhicules, ainsi qu'un panneau d'administration pour gérer l'inventaire des voitures disponibles.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ✨ Fonctionnalités Principales
 
-## Build
+### 👤 Pour les Clients
+- 📑 Catalogue de véhicules disponibles à la location
+- 📝 Fiches détaillées pour chaque véhicule
+- 📅 Système de réservation avec calendrier interactif
+- 📋 Formulaire de réservation personnalisé
+- 📱 Interface utilisateur responsive
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 👨‍💼 Pour les Administrateurs
+- 📊 Tableau de bord de gestion des véhicules
+- ➕ Ajout, modification et suppression de véhicules
+- 🔧 Personnalisation complète des fiches véhicules
+- 🗓️ Gestion des disponibilités
 
-## Running unit tests
+## 📸 Captures d'écran
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Page d'accueil avec liste des véhicules
+![Page d'accueil]
+![image](https://github.com/user-attachments/assets/e9a86879-accb-4300-be5c-32dc527b8913)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Fiche détaillée d'un véhicule
+![Fiche véhicule]
+![image](https://github.com/user-attachments/assets/7c30946b-989f-4df6-9bf2-a7767be9afbd)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# car_rental_front
+
+### Interface de réservation avec calendrier
+![Système de réservation]
+![image](https://github.com/user-attachments/assets/d9d242f9-e6ca-4ffe-86d1-17426b03c23e)
+
+
+### Panneau d'administration
+![Panneau admin]
+![image](https://github.com/user-attachments/assets/890e560a-7dce-4a0e-8fd1-eaed0f633247)
+
+
+## 🔧 Prérequis
+
+- [Node.js](https://nodejs.org/) (v22.12.0 version recommandée)
+- [Angular CLI](https://github.com/angular/angular-cli) (version 16)
+
+## 🚀 Installation et configuration
+
+1. Clonez le dépôt :
+```bash
+git clone https://github.com/Fedi-EL-Manoubi/car_rental_front.git
+cd car_rental_front
+```
+
+2. Installez les dépendances :
+```bash
+npm install
+```
+
+3. Lancez le serveur de développement :
+```bash
+ng serve -o
+```
+
+L'application sera automatiquement ouverte dans votre navigateur à l'adresse `http://localhost:4200/`.
+
+## 📁 Structure du Projet
+
+```
+car_rental_front/
+├── .angular/
+├── .vscode/
+├── node_modules/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── models/
+│   │   ├── services/
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   └── app.module.ts
+│   ├── assets/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.css
+├── .editorconfig
+├── .gitignore
+├── angular.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
+
+## 📘 Utilisation
+
+### 🚗 Interface Client
+
+1. Parcourez la liste des véhicules disponibles sur la page d'accueil
+2. Cliquez sur un véhicule pour voir sa fiche détaillée
+3. Utilisez le calendrier pour sélectionner les dates de location
+4. Remplissez le formulaire de réservation
+5. Confirmez votre réservation
+
+### 🔐 Interface Administrateur
+
+1. Accédez au tableau de bord administrateur
+2. Gérez l'inventaire des véhicules (ajout, modification, suppression)
+3. Modifiez les détails de chaque véhicule (marque, modèle, image, etc.)
+4. Configurez les disponibilités
+
+## 🔐 Accès Administrateur
+
+Pour accéder au panneau d'administration du site :
+
+1. Assurez-vous que le serveur de développement est en cours d'exécution
+2. Naviguez vers la route suivante dans votre navigateur : [http://localhost:4200/admin](http://localhost:4200/admin)
+
+Cette interface vous permet de gérer l'ensemble des véhicules disponibles, de modifier leurs caractéristiques et de suivre les réservations des utilisateurs.
+
+⚠️ Note : L'accès à cette section est accessible uniquement via la route admin
+
+## 💻 Technologies Utilisées
+
+- [Angular](https://angular.io/) - Framework front-end
+- [TypeScript](https://www.typescriptlang.org/) - Langage de programmation
+- [Bootstrap](https://getbootstrap.com/) - Framework CSS principal pour l'interface utilisateur
+- [HTML5](https://developer.mozilla.org/fr/docs/Web/HTML) - Structure et contenu des pages
+- [CSS3](https://developer.mozilla.org/fr/docs/Web/CSS) - Style personnalisé et ajustements visuels
+- [FullCalendar](https://fullcalendar.io/) - Système de calendrier interactif pour les réservations
+- [Font Awesome](https://fontawesome.com/) - Bibliothèque d'icônes pour améliorer l'expérience visuelle
+
+## ⌨️ Commandes Angular CLI
+
+- Génération de composants : `ng generate component component-name`
+- Construction du projet : `ng build`
+
+Pour plus d'informations sur Angular CLI, consultez la [documentation officielle](https://angular.io/cli).
+
+## 🤝 Contribution
+
+Si vous souhaitez contribuer à ce projet, veuillez suivre les étapes suivantes :
+
+1. Créez une branche (`git checkout -b feature/nomBranch`)
+2. Committez vos changements (`git commit -m 'Add some nomBranch'`)
+3. Poussez vers la branche (`git push origin feature/nomBranch`)
+4. Ouvrez une Pull Request
+
+
+## 📄 Licence
+© 2025 [EL Manoubi Fedi]. Tous droits réservés.
+Ce projet a été développé par [EL Manoubi Fedi] à des fins personnelles/éducatives. Toute utilisation commerciale ou redistribution sans autorisation est interdite.
+
+Lien du projet : https://github.com/Fedi-EL-Manoubi/car_rental_front/tree/main
