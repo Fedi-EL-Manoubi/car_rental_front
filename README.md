@@ -136,8 +136,11 @@ Cette interface vous permet de gérer l'ensemble des véhicules disponibles, de 
 
 - [Angular](https://angular.io/) - Framework front-end
 - [TypeScript](https://www.typescriptlang.org/) - Langage de programmation
-- [Bootstrap](https://getbootstrap.com/) (ou autre framework CSS si applicable)
-- [RxJS](https://rxjs.dev/) - Bibliothèque pour la programmation réactive
+- [Bootstrap](https://getbootstrap.com/) - Framework CSS principal pour l'interface utilisateur
+- [HTML5](https://developer.mozilla.org/fr/docs/Web/HTML) - Structure et contenu des pages
+- [CSS3](https://developer.mozilla.org/fr/docs/Web/CSS) - Style personnalisé et ajustements visuels
+- [FullCalendar](https://fullcalendar.io/) - Système de calendrier interactif pour les réservations
+- [Font Awesome](https://fontawesome.com/) - Bibliothèque d'icônes pour améliorer l'expérience visuelle
 
 ## ⌨️ Commandes Angular CLI
 
