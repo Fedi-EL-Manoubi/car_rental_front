@@ -162,4 +162,5 @@ Si vous souhaitez contribuer à ce projet, veuillez suivre les étapes suivantes
 ## 📄 Licence
 © 2025 [EL Manoubi Fedi]. Tous droits réservés.
 Ce projet a été développé par [EL Manoubi Fedi] à des fins personnelles/éducatives. Toute utilisation commerciale ou redistribution sans autorisation est interdite.
+
 Lien du projet : https://github.com/Fedi-EL-Manoubi/car_rental_front/tree/main
