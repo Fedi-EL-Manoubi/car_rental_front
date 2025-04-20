@@ -47,7 +47,7 @@ RentalCar est une application web développée avec Angular qui permet aux utili
 
 ## 🔧 Prérequis
 
-- [Node.js](https://nodejs.org/) (version recommandée)
+- [Node.js](https://nodejs.org/) (v22.12.0 version recommandée)
 - [Angular CLI](https://github.com/angular/angular-cli) (version 16)
 
 ## 🚀 Installation et configuration
