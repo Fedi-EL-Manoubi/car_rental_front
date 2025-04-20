@@ -132,8 +132,6 @@ car_rental_front/
 
 - Génération de composants : `ng generate component component-name`
 - Construction du projet : `ng build`
-- Exécution des tests unitaires : `ng test`
-- Exécution des tests end-to-end : `ng e2e`
 
 Pour plus d'informations sur Angular CLI, consultez la [documentation officielle](https://angular.io/cli).
 
