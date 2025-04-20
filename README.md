@@ -67,22 +67,35 @@ L'application sera automatiquement ouverte dans votre navigateur à l'adresse `h
 
 ## Structure du Projet
 
-```
 car_rental_front/
+├── .angular/
+├── .vscode/
+├── node_modules/
 ├── src/
 │   ├── app/
 │   │   ├── components/
-│   │   │   ├── home/
-│   │   │   ├── vehicle-details/
-│   │   │   ├── booking-form/
-│   │   │   └── admin-dashboard/
-│   │   ├── services/
 │   │   ├── models/
-│   │   └── ...
+│   │   ├── services/
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.css
+│   │   ├── app.component.html
+│   │   ├── app.component.spec.ts
+│   │   ├── app.component.ts
+│   │   └── app.module.ts
 │   ├── assets/
-│   └── ...
-└── ...
-```
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.css
+├── .editorconfig
+├── .gitignore
+├── angular.json
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
 
 ## Utilisation
 
