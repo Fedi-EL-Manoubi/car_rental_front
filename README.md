@@ -54,7 +54,7 @@ RentalCar est une application web développée avec Angular qui permet aux utili
 
 1. Clonez le dépôt :
 ```bash
-[git [clone https://github.com/votre-username/car_rental_front.git](https://github.com/Fedi-EL-Manoubi/car_rental_front.git)](https://github.com/Fedi-EL-Manoubi/car_rental_front.git)
+[git clone https://github.com/votre-username/car_rental_front.git]
 cd car_rental_front
 ```
 
