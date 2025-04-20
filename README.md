@@ -54,7 +54,7 @@ RentalCar est une application web développée avec Angular qui permet aux utili
 
 1. Clonez le dépôt :
 ```bash
-[git clone https://github.com/votre-username/car_rental_front.git]
+git clone https://github.com/votre-username/car_rental_front.git
 cd car_rental_front
 ```
 
@@ -141,17 +141,13 @@ Pour plus d'informations sur Angular CLI, consultez la [documentation officielle
 
 Si vous souhaitez contribuer à ce projet, veuillez suivre les étapes suivantes :
 
-1. Créez une branche (`git checkout -b feature/AmazingFeature`)
-2. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
-3. Poussez vers la branche (`git push origin feature/AmazingFeature`)
+1. Créez une branche (`git checkout -b feature/nomBranch`)
+2. Committez vos changements (`git commit -m 'Add some nomBranch'`)
+3. Poussez vers la branche (`git push origin feature/nomBranch`)
 4. Ouvrez une Pull Request
 
+
 ## 📄 Licence
-
-Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).
-
-## 📫 Contact
-
-Votre Nom - [votre-email@exemple.com](mailto:votre-email@exemple.com)
-
-Lien du projet : [https://github.com/votre-username/car_rental_front](https://github.com/votre-username/car_rental_front)
+© 2025 [EL Manoubi Fedi]. Tous droits réservés.
+Ce projet a été développé par [EL Manoubi Fedi] à des fins personnelles/éducatives. Toute utilisation commerciale ou redistribution sans autorisation est interdite.
+Lien du projet : https://github.com/Fedi-EL-Manoubi/car_rental_front/tree/main
