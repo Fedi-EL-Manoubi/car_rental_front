@@ -121,6 +121,17 @@ car_rental_front/
 3. Modifiez les détails de chaque véhicule (marque, modèle, image, etc.)
 4. Configurez les disponibilités
 
+## 🔐 Accès Administrateur
+
+Pour accéder au panneau d'administration du site :
+
+1. Assurez-vous que le serveur de développement est en cours d'exécution
+2. Naviguez vers la route suivante dans votre navigateur : [http://localhost:4200/admin](http://localhost:4200/admin)
+
+Cette interface vous permet de gérer l'ensemble des véhicules disponibles, de modifier leurs caractéristiques et de suivre les réservations des utilisateurs.
+
+⚠️ Note : L'accès à cette section est accessible uniquement via la route admin
+
 ## 💻 Technologies Utilisées
 
 - [Angular](https://angular.io/) - Framework front-end
